@@ -1,0 +1,13 @@
+.DS_Store
+*.bak
+*.backup
+*.log
+backup/
+backups/
+node_modules/
+__pycache__/
+*.pyc
+*.tmp
+*.swp
+dist/
+build/

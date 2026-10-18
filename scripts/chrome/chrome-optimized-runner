@@ -1,0 +1,9 @@
+#!/bin/zsh
+
+set -e
+
+exec "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+  --force-gpu-mem-available-mb=256 \
+  --disable-speech-api \
+  --disable-features=LiveCaption,OnDeviceSpeechRecognition,SpeechRecognition \
+  --restore-last-session

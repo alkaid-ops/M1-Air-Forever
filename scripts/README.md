@@ -1,37 +1,31 @@
 # Scripts
 
-所有脚本先 dry-run，再 apply。
-
-## launchd 清理
+## Main entry point
 
 ```bash
-./disable-apple-residual.sh --dry-run
-./disable-apple-residual.sh --apply
-./disable-apple-residual.sh --enable   # 回滚
+sudo ./m1-optimizer.sh
 ```
 
-同理适用于：
+The optimizer supports:
 
-- `disable-apple-extra.sh`
-- `disable-spotlight-sharing.sh`
-- `disable-extra-launchd.sh`
-
-## 壁纸
+- Wizard mode: asks one question at a time.
+- Custom mode: toggle feature groups.
+- Rollback: restores recorded launchd changes.
+- Logs: `~/Library/Logs/M1-Air-Forever/optimizer-YYYYmmdd-HHMMSS.log`
 
 ```bash
-./set-wallpaper.py "/System/Library/Desktop Pictures/Sonoma.heic"
-./set-wallpaper.py --restore
+sudo ./m1-optimizer.sh --wizard
+sudo ./m1-optimizer.sh --custom
+sudo ./m1-optimizer.sh --rollback
+sudo ./m1-optimizer.sh --dry-run
 ```
 
-## Chrome
+## Helpers
 
-`chrome/chrome-optimized-runner`：限制 GPU 预算，禁用语音识别。  
-`chrome/chrome-low-gpu-runner`：禁用 GPU，极低显存但 CPU 会上升。
+- `set-wallpaper.py`: set or restore a static wallpaper.
+- `chrome/chrome-optimized-runner`: Chrome with a smaller GPU budget.
+- `chrome/chrome-low-gpu-runner`: Chrome with GPU disabled.
 
-用法：
+## Legacy
 
-```bash
-./chrome/chrome-optimized-runner
-```
-
-需要先完全退出 Chrome，否则 macOS 会把启动请求交给已有进程。
+`legacy/` contains the original split scripts. They are kept for reference; the supported user-facing entry point is `m1-optimizer.sh`.

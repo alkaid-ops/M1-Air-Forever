@@ -1,0 +1,13 @@
+name: Shell
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check optimizer syntax
+        run: bash -n scripts/m1-optimizer.sh

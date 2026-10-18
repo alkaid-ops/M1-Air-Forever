@@ -1,9 +1,0 @@
-#!/bin/zsh
-
-set -e
-
-exec "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
-  --disable-gpu \
-  --disable-speech-api \
-  --disable-features=LiveCaption,OnDeviceSpeechRecognition,SpeechRecognition \
-  --restore-last-session
